@@ -1,0 +1,133 @@
+{
+  "main": {
+    "name": "Md Zubair Saleem",
+    "occupation": "Recent Computer Science Graduate",
+    "description": "Full-Stack Developer | AI/ML Enthusiast | Software Engineer",
+    "image": "profilepic.jpg",
+    "bio": "Recent Computer Science graduate with expertise in software design, development, and testing. Skilled in Python, Java, and full-stack development with hands-on experience in building AI-driven solutions and web applications. Passionate about creating innovative technical solutions to real-world problems.",
+    "contactmessage": "Let's connect and build something amazing!",
+    "email": "mdzubairsaleem786gmail.com",
+    "phone": "+91 6361032887",
+    "address": {
+      "street": "2nd Cross AECS layout Brookfield",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "zip": "560037"
+    },
+    "website": "https://github.com/Mzs786",
+    "resumedownload": "/Resume_freshers.pdf",
+    "social": [
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/mdzubairsaleem",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/Mzs786",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": "Technical Proficiency & Competencies",
+    "education": [
+      {
+        "school": "CMR Institute of Technology",
+        "degree": "B.E. in Computer Science and Engineering",
+        "graduated": " ,2021-2025",
+        "description": "CGPA: 7.50/10 | Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning"
+      },
+      {
+        "school": "Guru Nanak Ind PU College, Bidar",
+        "degree": "XII (Senior Secondary)",
+        "graduated": " ,2020",
+        "description": "State Board | Percentage: 72.66%"
+      },
+      {
+        "school": "Karnataka Public School, Bidar",
+        "degree": "X (Secondary)",
+        "graduated": " ,2018",
+        "description": "CBSE Board | Percentage: 69.20%"
+      }
+    ],
+    "work": [
+      {
+        "company": "AI Tech Solutions",
+        "title": "Software Engineering Intern",
+        "years": " ,Dec 2024 - May 2025",
+        "description": "Developed web applications using React.js/Node.js, optimized backend services by 15% API response time, implemented Agile methodologies"
+      },
+      {
+        "company": "Educast Consulting Services",
+        "title": "SDE Intern",
+        "years": " ,2022",
+        "description": "Created responsive websites with HTML/CSS/JavaScript, integrated payment/booking APIs for client solutions"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Programming Languages",
+        "items": ["Python", "Java", "C++", "JavaScript", "SQL"]
+      },
+      {
+        "name": "Web Development",
+        "items": ["React", "Node.js", "Flask", "REST APIs", "MongoDB"]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "items": ["AWS", "Docker", "Git", "Firebase", "CI/CD"]
+      },
+      {
+        "name": "AI/ML Stack",
+        "items": ["ChatterBot", "NLP", "Gemini API", "Scikit-learn"]
+      },
+      {
+        "name": "Soft Skills",
+        "items": ["Problem Solving", "Agile Methodologies", "Team Leadership", "Technical Communication"]
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Food Ordering App",
+        "category": "Full-Stack Development",
+        "image": "foodapp.png",
+        "url": "https://food-ordering-app-with-ai.vercel.app/"
+      },
+      {
+        "title": "Multiple Disease Prediction System",
+        "category": "Web Development",
+        "image": "health.jpg",
+        "url": "https://multiple-disease-prediction-system-786.streamlit.app/"
+      },
+      {
+        "title": "Learning Management System",
+        "category": "Web Development",
+        "image": "lms.png",
+        "url": "https://learning-management-system-lms-omega.vercel.app/"
+      },
+      {
+        "title": "Expense Tracker Application",
+        "category": "Web Development",
+        "image": "Expense.jpg",
+        "url": "https://personal-expense-tracker-sooty.vercel.app/"
+      },
+      {
+        "title": "Currency Converter",
+        "category": "Web Development",
+        "image": "Currency.jpg",
+        "url": "https://currency-convertor-rust-three.vercel.app/"
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": [
+      {
+        "text": "Secured 2nd Prize in College Hackathon for innovative AI-driven solutions",
+        "user": "CMRIT Hackathon 2022"
+      }
+    ]
+  }
+}
