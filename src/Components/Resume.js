@@ -1,162 +1,217 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// Error Boundary Component
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+const TECH_ICONS = {
+  "Python": "devicon-python-plain colored",
+  "Java": "devicon-java-plain colored",
+  "C++": "devicon-cplusplus-plain colored",
+  "JavaScript": "devicon-javascript-plain colored",
+  "TypeScript": "devicon-typescript-plain colored",
+  "SQL": "fa fa-database",
+  "FastAPI": "devicon-fastapi-plain colored",
+  "Node.js": "devicon-nodejs-plain colored",
+  "Express.js": "devicon-express-original",
+  "REST APIs": "fa fa-exchange",
+  "Flask": "devicon-flask-original",
+  "Pydantic": "fa fa-shield",
+  "React.js": "devicon-react-original colored",
+  "Next.js": "devicon-nextjs-plain",
+  "HTML5": "devicon-html5-plain colored",
+  "CSS3": "devicon-css3-plain colored",
+  "Tailwind CSS": "devicon-tailwindcss-original colored",
+  "LangChain": "fa fa-cubes",
+  "Gemini API": "fa fa-magic",
+  "Prompt Engineering": "fa fa-terminal",
+  "NLP": "fa fa-comments-o",
+  "Scikit-learn": "devicon-scikitlearn-plain colored",
+  "PostgreSQL": "devicon-postgresql-plain colored",
+  "MongoDB": "devicon-mongodb-plain colored",
+  "MySQL": "devicon-mysql-plain colored",
+  "Query Tuning": "fa fa-dashboard",
+  "AWS": "devicon-amazonwebservices-plain-wordmark colored",
+  "Docker": "devicon-docker-plain colored",
+  "Git & GitHub": "devicon-github-original",
+  "CI/CD Pipelines": "fa fa-random",
+  "Firebase": "devicon-firebase-plain colored",
+};
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("Resume Component Error:", error, info);
-  }
-
-  render() {
-    return this.state.hasError ? (
-      <div className="resume-error" role="alert">
-        ⚠️ Error loading resume section. Please try refreshing the page.
-      </div>
-    ) : (
-      this.props.children
-    );
-  }
-}
-
-// Reusable Section Component
-const Section = ({ title, children, ariaLabel }) => (
-  <section className="resume-section" aria-label={ariaLabel}>
-    <div className="section-header">
-      <h2 className="section-title">{title}</h2>
-    </div>
-    <div className="section-content">{children}</div>
-  </section>
-);
-
-Section.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  ariaLabel: PropTypes.string,
+const CATEGORY_META = {
+  "Programming Languages": { icon: "fa fa-code", color: "#6366f1", bg: "rgba(99, 102, 241, 0.1)" },
+  "Backend & APIs": { icon: "fa fa-server", color: "#10b981", bg: "rgba(16, 185, 129, 0.1)" },
+  "Frontend Development": { icon: "fa fa-laptop", color: "#0ea5e9", bg: "rgba(14, 165, 233, 0.1)" },
+  "AI & LLM Stack": { icon: "fa fa-magic", color: "#8b5cf6", bg: "rgba(139, 92, 246, 0.1)" },
+  "Databases & Storage": { icon: "fa fa-database", color: "#f59e0b", bg: "rgba(245, 158, 11, 0.1)" },
+  "Cloud & DevOps": { icon: "fa fa-cloud", color: "#ec4899", bg: "rgba(236, 72, 153, 0.1)" },
 };
 
 const Resume = ({ data }) => {
-  if (!data)
-    return <div className="loading">Loading resume data...</div>;
+  if (!data) return null;
 
-  // Destructure data with fallback defaults
   const {
     education = [],
     work = [],
     skills = [],
-    skillmessage = "Technical Proficiencies",
   } = data;
 
   return (
-    <ErrorBoundary>
-      <main id="resume" className="resume-container">
-        {/* Education Section */}
-        <Section title="Education" ariaLabel="Education History">
-          {education.length > 0 ? (
-            education.map((edu) => (
-              <article key={edu.school} className="timeline-item">
-                <h3>{edu.school}</h3>
-                <div className="meta">
-                  <span className="degree">{edu.degree}</span>
-                  <span aria-hidden="true" className="separator"></span>
-                  <time dateTime={edu.graduated}>{edu.graduated}</time>
-                </div>
-                {edu.description && (
-                  <p className="description">{edu.description}</p>
-                )}
-              </article>
-            ))
-          ) : (
-            <p>No education data available.</p>
-          )}
-        </Section>
+    <section id="resume">
+      <div className="rs-container">
+        {/* ── Work Experience ── */}
+        <div className="rs-section">
+          <div className="rs-section-header">
+            <h2 className="rs-heading">Experience</h2>
+          </div>
 
-        {/* Experience Section */}
-        <Section title="Experience" ariaLabel="Work Experience">
-          {work.length > 0 ? (
-            work.map((job) => (
-              <article key={job.company} className="timeline-item">
-                <h3>{job.company}</h3>
-                <div className="meta">
-                  <span className="role">{job.title}</span>
-                  <span aria-hidden="true" className="separator"></span>
-                  <time dateTime={job.years}>{job.years}</time>
+          <div className="rs-list">
+            {work.map((job) => (
+              <div key={job.company} className="rs-item">
+                <div className="rs-item-top">
+                  <div className="rs-role-wrap">
+                    {job.logo && (
+                      <a
+                        href={job.website || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rs-company-logo-link"
+                        title={job.company}
+                      >
+                        <img src={job.logo} alt={job.company} className="rs-company-logo" />
+                      </a>
+                    )}
+                    <div>
+                      <h3 className="rs-role">{job.title}</h3>
+                      <span className="rs-org">{job.company}</span>
+                      {job.location && (
+                        <span className="rs-loc"> • {job.location}</span>
+                      )}
+                    </div>
+                  </div>
+                  <span className="rs-date">
+                    <i className="fa fa-calendar-o" style={{ marginRight: "6px" }} />
+                    {job.years}
+                  </span>
                 </div>
                 {job.description && (
-                  <p className="description">{job.description}</p>
+                  <p className="rs-desc">{job.description}</p>
                 )}
-              </article>
-            ))
-          ) : (
-            <p>No work experience data available.</p>
-          )}
-        </Section>
-
-        {/* Skills Section */}
-        <Section title="Skills" ariaLabel="Technical Skills">
-          <p className="skill-intro">{skillmessage}</p>
-          <div className="skills-grid">
-            {skills.length > 0 ? (
-              skills.map((skill) => (
-                <div key={skill.name} className="skill-category">
-                  <h4>{skill.name}</h4>
-                  <ul className="skill-list">
-                    {skill.items && skill.items.length > 0 ? (
-                      skill.items.map((item) => (
-                        <li key={item} className="skill-item">
-                          {item}
-                        </li>
-                      ))
-                    ) : (
-                      <li className="skill-item">No skills listed</li>
-                    )}
+                {job.bullets && job.bullets.length > 0 && (
+                  <ul className="rs-bullets">
+                    {job.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
                   </ul>
-                </div>
-              ))
-            ) : (
-              <p>No skills data available.</p>
-            )}
+                )}
+              </div>
+            ))}
           </div>
-        </Section>
-      </main>
-    </ErrorBoundary>
-  );
-};
+        </div>
 
-Resume.propTypes = {
-  data: PropTypes.shape({
-    education: PropTypes.arrayOf(
-      PropTypes.shape({
-        school: PropTypes.string.isRequired,
-        degree: PropTypes.string.isRequired,
-        graduated: PropTypes.string,
-        description: PropTypes.string,
-      })
-    ),
-    work: PropTypes.arrayOf(
-      PropTypes.shape({
-        company: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        years: PropTypes.string,
-        description: PropTypes.string,
-      })
-    ),
-    skills: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        items: PropTypes.arrayOf(PropTypes.string).isRequired,
-      })
-    ),
-    skillmessage: PropTypes.string,
-  }),
+        {/* ── Education ── */}
+        <div className="rs-section">
+          <div className="rs-section-header">
+            <h2 className="rs-heading">Education</h2>
+          </div>
+
+          <div className="rs-list">
+            {education.map((edu) => {
+              const parts = (edu.description || "").split("|").map(s => s.trim());
+              let cgpa = null;
+              let scoreDetail = null;
+              let courses = [];
+
+              parts.forEach(p => {
+                if (p.toLowerCase().startsWith("cgpa")) {
+                  cgpa = p.replace(/^cgpa:?\s*/i, "").trim();
+                } else if (p.toLowerCase().startsWith("coursework") || p.toLowerCase().startsWith("relevant coursework")) {
+                  courses = p.replace(/^(relevant\s+)?coursework:?\s*/i, "").split(",").map(c => c.trim()).filter(Boolean);
+                } else {
+                  scoreDetail = p;
+                }
+              });
+
+              return (
+                <div key={edu.school} className="rs-item">
+                  <div className="rs-item-top">
+                    <div>
+                      <h3 className="rs-role">{edu.degree}</h3>
+                      <span className="rs-org">
+                        <i className="fa fa-graduation-cap" style={{ marginRight: "6px", opacity: 0.7 }} />
+                        {edu.school}
+                      </span>
+                    </div>
+                    <span className="rs-date">
+                      <i className="fa fa-calendar-o" style={{ marginRight: "6px" }} />
+                      {edu.graduated}
+                    </span>
+                  </div>
+                  {cgpa && (
+                    <div className="rs-cgpa-pill">
+                      <span className="rs-cgpa-dot" />
+                      <span>CGPA: <strong>{cgpa}</strong></span>
+                    </div>
+                  )}
+                  {scoreDetail && !cgpa && (
+                    <p className="rs-desc" style={{ marginTop: "0.4rem" }}>{scoreDetail}</p>
+                  )}
+                  {courses.length > 0 && (
+                    <div style={{ marginTop: "0.85rem" }}>
+                      <span className="rs-coursework-label">Coursework:</span>
+                      <div className="rs-tags" style={{ marginTop: "0.35rem" }}>
+                        {courses.map((c, i) => (
+                          <span key={i} className="rs-tag">{c}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ── Skills ── */}
+        <div className="rs-section">
+          <div className="rs-section-header">
+            <h2 className="rs-heading">Skills</h2>
+          </div>
+
+          <div className="rs-skills-grid">
+            {skills.map((cat) => {
+              const meta = CATEGORY_META[cat.name] || {
+                icon: "fa fa-code",
+                color: "#6366f1",
+                bg: "rgba(99, 102, 241, 0.1)",
+              };
+
+              return (
+                <div key={cat.name} className="rs-skill-group">
+                  <div className="rs-skill-header">
+                    <span
+                      className="rs-skill-icon-badge"
+                      style={{ color: meta.color, backgroundColor: meta.bg }}
+                    >
+                      <i className={meta.icon} />
+                    </span>
+                    <h4 className="rs-skill-label">{cat.name}</h4>
+                  </div>
+                  <div className="rs-tags">
+                    {cat.items && cat.items.map((item) => {
+                      const iconClass = TECH_ICONS[item];
+                      return (
+                        <span key={item} className="rs-tag">
+                          {iconClass && <i className={`${iconClass} rs-tech-icon`} />}
+                          <span>{item}</span>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Resume;

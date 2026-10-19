@@ -32,7 +32,29 @@ const Footer = ({ data }) => {
 
   return (
     <footer className="site-footer" role="contentinfo">
-      <div className="container">
+      <div className="container footer-content">
+        {/* Back to Top Button */}
+        <div id="go-top">
+          <a 
+            className="smoothscroll" 
+            title="Back to Top" 
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              const homeEl = document.getElementById("home");
+              if (homeEl) {
+                homeEl.scrollIntoView({ behavior: "smooth" });
+                if (window.history.pushState) {
+                  window.history.pushState(null, "", "#home");
+                }
+              }
+            }}
+            aria-label="Back to top of page"
+          >
+            <i className="icon-up-open" aria-hidden="true"></i>
+          </a>
+        </div>
+
         <div className="row">
           <div className="twelve columns">
             {/* Social Links Section */}
@@ -52,18 +74,6 @@ const Footer = ({ data }) => {
               </p>
               <p className="year">© {currentYear} All rights reserved.</p>
             </div>
-          </div>
-
-          {/* Back to Top Button - Inside footer but outside columns */}
-          <div id="go-top">
-            <a 
-              className="smoothscroll" 
-              title="Back to Top" 
-              href="#home"
-              aria-label="Back to top of page"
-            >
-              <i className="icon-up-open" aria-hidden="true"></i>
-            </a>
           </div>
         </div>
       </div>

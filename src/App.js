@@ -21,6 +21,39 @@ const App = () => {
       });
   }, []);
 
+  // developerFolio scroll-reveal animation observer
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("df-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    // Give React a tick to mount items into DOM before querySelectorAll
+    const timeoutId = setTimeout(() => {
+      const elementsToAnimate = document.querySelectorAll(
+        ".rs-item, .rs-skill-group, .pf-card, .df-reveal-target"
+      );
+      elementsToAnimate.forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, [resumeData]);
+
   return (
     <div className="App">
       <Header data={resumeData.main} />

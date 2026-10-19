@@ -1,18 +1,18 @@
 {
   "main": {
     "name": "Md Zubair Saleem",
-    "occupation": "Recent Computer Science Graduate",
-    "description": "Full-Stack Developer | AI/ML Enthusiast | Software Engineer",
+    "occupation": "Software Engineer at Teclusion AI",
+    "description": "Backend Systems · FastAPI & Python · LLM Workflows",
     "image": "profilepic.jpg",
-    "bio": "Recent Computer Science graduate with expertise in software design, development, and testing. Skilled in Python, Java, and full-stack development with hands-on experience in building AI-driven solutions and web applications. Passionate about creating innovative technical solutions to real-world problems.",
-    "contactmessage": "Let's connect and build something amazing!",
-    "email": "mdzubairsaleem786gmail.com",
+    "bio": "I got into software engineering because I love understanding how systems function under the hood and the thrill of turning ideas into real products. Right now at Teclusion AI, I build production REST APIs with FastAPI, optimize databases across PostgreSQL and MongoDB, and wire LLM pipelines into real workflows. When I'm not writing APIs, you'll find me exploring Agentic AI, building side projects, or drinking too much chai ☕.",
+    "contactmessage": "I'm always excited to talk about backend systems, AI workflows, or full-time software engineering roles. My inbox is always open.",
+    "email": "mdzubairsaleem786@gmail.com",
+    "web3forms_key": "e70c3824-f613-4779-b3b4-3bf2686b3f07",
     "phone": "+91 6361032887",
     "address": {
-      "street": "2nd Cross AECS layout Brookfield",
-      "city": "Bengaluru",
-      "state": "Karnataka",
-      "zip": "560037"
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "country": "India"
     },
     "website": "https://github.com/Mzs786",
     "resumedownload": "/ZubairSDE.pdf",
@@ -30,103 +30,153 @@
     ]
   },
   "resume": {
-    "skillmessage": "Technical Proficiency & Competencies",
+    "skillmessage": "Tools & Technologies I Build With",
     "education": [
       {
         "school": "CMR Institute of Technology",
-        "degree": "B.E. in Computer Science and Engineering",
-        "graduated": " ,2021-2025",
-        "description": "CGPA: 7.50/10 | Relevant Coursework: Data Structures, Algorithms, Database Systems, Machine Learning"
-      },
-      {
-        "school": "Guru Nanak Ind PU College, Bidar",
-        "degree": "XII (Senior Secondary)",
-        "graduated": " ,2020",
-        "description": "State Board | Percentage: 72.66%"
-      },
-      {
-        "school": "Karnataka Public School, Bidar",
-        "degree": "X (Secondary)",
-        "graduated": " ,2018",
-        "description": "CBSE Board | Percentage: 69.20%"
+        "degree": "B.E. Computer Science",
+        "graduated": "2021 – 2025",
+        "location": "Bengaluru, India",
+        "description": "Graduated with 7.5 CGPA. Focused on data structures, distributed systems, and backend development."
       }
     ],
     "work": [
       {
-        "company": "AI Tech Solutions",
-        "title": "Software Engineering Intern",
-        "years": " ,Dec 2024 - May 2025",
-        "description": "Developed web applications using React.js/Node.js, optimized backend services by 15% API response time, implemented Agile methodologies"
-      },
-      {
-        "company": "Educast Consulting Services",
-        "title": "SDE Intern",
-        "years": " ,2022",
-        "description": "Created responsive websites with HTML/CSS/JavaScript, integrated payment/booking APIs for client solutions"
+        "company": "Teclusion AI",
+        "title": "Software Engineer",
+        "years": "Jan 2026 – Present",
+        "location": "Hyderabad, Telangana",
+        "summary": "Building production backend services and AI pipelines rather than just internal demos. Taking full ownership of API reliability, query speed, and test coverage.",
+        "bullets": [
+          "Designed, tested, and shipped production REST API services using Python and FastAPI with strict Pydantic v2 validation.",
+          "Wired LLM-powered pipelines into backend logic using LangChain and Gemini APIs for automated data analysis.",
+          "Optimized PostgreSQL and MongoDB queries, reducing latency by ~15% across key endpoints.",
+          "Containerized microservices with Docker, configured Kubernetes deployments, and automated testing with Playwright and PyTest."
+        ]
       }
     ],
     "skills": [
       {
-        "name": "Programming Languages",
-        "items": ["Python", "Java", "C++", "JavaScript", "SQL"]
+        "name": "Backend",
+        "items": ["Python", "FastAPI", "REST APIs", "Node.js", "Pydantic v2"]
       },
       {
-        "name": "Web Development",
-        "items": ["React", "Node.js", "Flask", "REST APIs", "MongoDB"]
+        "name": "AI & LLM Stack",
+        "items": ["LangChain", "Gemini API", "Prompt Engineering", "MCP Protocols"]
       },
       {
-        "name": "Cloud & DevOps",
-        "items": ["AWS", "Docker", "Git", "Firebase", "CI/CD"]
+        "name": "Databases",
+        "items": ["PostgreSQL", "MongoDB", "MySQL", "Query Tuning"]
       },
       {
-        "name": "AI/ML Stack",
-        "items": ["ChatterBot", "NLP", "Gemini API", "Scikit-learn"]
+        "name": "DevOps & Cloud",
+        "items": ["Docker", "Kubernetes", "AWS", "CI/CD Pipelines"]
       },
       {
-        "name": "Soft Skills",
-        "items": ["Problem Solving", "Agile Methodologies", "Team Leadership", "Technical Communication"]
+        "name": "Frontend",
+        "items": ["React.js", "Next.js", "Tailwind CSS"]
+      },
+      {
+        "name": "Testing & Tools",
+        "items": ["Playwright", "PyTest", "Postman", "Git & GitHub"]
       }
     ]
   },
   "portfolio": {
     "projects": [
       {
-        "title": "Food Ordering App",
-        "category": "Full-Stack Development",
+        "title": "Dynamic Rule Engine API System",
+        "category": "Backend Engineering",
+        "image": "Expense.jpg",
+        "url": "https://github.com/Mzs786/flask-rule-engine",
+        "challenge": "Hardcoded business logic slows teams down and requires constant redeployments. I wanted an engine that evaluates business rules dynamically via REST APIs without downtime.",
+        "howIBuiltIt": "Built a modular FastAPI service using abstract syntax tree (AST) parsing, strict Pydantic schemas, and exhaustive PyTest suites.",
+        "takeaway": "Learned deep AST parsing and how to build bulletproof data validation layers against invalid expression evaluation.",
+        "mobileSummary": "Dynamic rule evaluation engine built with FastAPI and AST parsing. Evaluates custom business logic on the fly without code redeployments.",
+        "bullets": [
+          "Built a FastAPI rule engine for evaluating dynamic business rules through REST endpoints.",
+          "Implemented AST rule parsing, validation, and safe evaluation workflows."
+        ],
+        "tech": ["Python", "FastAPI", "AST Parsing", "PyTest", "REST APIs"]
+      },
+      {
+        "title": "AI Food Ordering & Diet Recommendation",
+        "category": "Full-Stack & LLM",
         "image": "foodapp.png",
-        "url": "https://food-ordering-app-with-ai.vercel.app/"
+        "url": "https://food-ordering-app-with-ai.vercel.app/",
+        "challenge": "Most food apps recommend popular dishes, not what fits your personal health constraints or diet goals. I wanted to see if AI could make ordering tailored to nutrition.",
+        "howIBuiltIt": "Integrated Gemini LLM with LangChain inside a React, Node.js, and MongoDB stack to generate structured dietary meal plans with instant cart synchronization.",
+        "takeaway": "Discovered that prompt architecture and strict JSON schemas matter far more than model size when grounding AI into eCommerce logic.",
+        "mobileSummary": "Full-stack food ordering app powered by Gemini & LangChain that personalizes meal orders based on health and dietary requirements.",
+        "bullets": [
+          "Integrated Gemini LLM with LangChain for context-aware dietary meal recommendations.",
+          "Built full-stack React + Node.js interface with real-time cart and nutritional calculations."
+        ],
+        "tech": ["React", "Node.js", "MongoDB", "Gemini LLM", "LangChain"]
       },
       {
         "title": "Multiple Disease Prediction System",
-        "category": "Web Development",
+        "category": "Machine Learning & Streamlit",
         "image": "health.jpg",
-        "url": "https://multiple-disease-prediction-system-786.streamlit.app/"
+        "url": "https://multiple-disease-prediction-system-786.streamlit.app/",
+        "challenge": "Predictive healthcare models are often buried in Jupyter notebooks. I wanted an interactive, accessible diagnostic tool clinicians or users could test in seconds.",
+        "howIBuiltIt": "Trained machine learning classification models on clinical patient datasets (~92% accuracy) and built an interactive Streamlit UI for immediate parameter analysis.",
+        "takeaway": "Mastered feature scaling, handling class imbalances, and translating raw ML models into intuitive interactive software.",
+        "mobileSummary": "Interactive ML diagnostic assistant predicting multiple conditions with ~92% accuracy, deployed live on Streamlit.",
+        "bullets": [
+          "Trained classification models achieving ~92% accuracy on clinical biometric datasets.",
+          "Designed interactive Streamlit web dashboard for real-time risk predictions."
+        ],
+        "tech": ["Python", "Scikit-Learn", "Machine Learning", "Streamlit"]
       },
       {
-        "title": "Learning Management System",
-        "category": "Web Development",
+        "title": "Learning Management System (LMS)",
+        "category": "Full-Stack Development",
         "image": "lms.png",
-        "url": "https://learning-management-system-lms-omega.vercel.app/"
+        "url": "https://learning-management-system-lms-omega.vercel.app/",
+        "challenge": "Educational platforms can be bloated. I wanted a lightweight, modular system for student enrollments and course tracking.",
+        "howIBuiltIt": "Constructed responsive React components with secure JWT authentication and clean Node/Express endpoints for student progress tracking.",
+        "takeaway": "Gained solid experience in state management, session handling, and clean modular REST design.",
+        "mobileSummary": "Modular educational portal with JWT authentication, course cataloging, and student enrollment tracking.",
+        "bullets": [
+          "Engineered course catalog and student enrollment interface with authentication.",
+          "Implemented RESTful endpoints for lesson progress and user verification."
+        ],
+        "tech": ["React", "Node.js", "Express", "REST APIs", "JWT"]
       },
       {
-        "title": "Expense Tracker Application",
-        "category": "Web Development",
-        "image": "Expense.jpg",
-        "url": "https://personal-expense-tracker-sooty.vercel.app/"
-      },
-      {
-        "title": "Currency Converter",
-        "category": "Web Development",
+        "title": "Real-Time Currency Exchange Engine",
+        "category": "Web Application",
         "image": "Currency.jpg",
-        "url": "https://currency-convertor-rust-three.vercel.app/"
+        "url": "https://currency-convertor-rust-three.vercel.app/",
+        "challenge": "Building a zero-delay conversion utility with live forex rate updates and responsive mobile UX.",
+        "howIBuiltIt": "Integrated live ExchangeRate APIs with asynchronous state updates and clean CSS styling.",
+        "takeaway": "Deepened understanding of asynchronous DOM events and third-party API error fallbacks.",
+        "mobileSummary": "Fast currency converter featuring real-time forex rate calculations and instantaneous rate swapping.",
+        "bullets": [
+          "Integrated live exchange rate APIs with asynchronous calculations.",
+          "Lightweight client-side UI with instant swap functionality."
+        ],
+        "tech": ["JavaScript", "Exchange Rate API", "HTML5", "CSS3"]
       }
     ]
   },
   "testimonials": {
     "testimonials": [
       {
-        "text": "Secured 2nd Prize in College Hackathon for innovative AI-driven solutions",
-        "user": "CMRIT Hackathon 2022"
+        "title": "2nd Place Winner — College Project Exhibition",
+        "text": "Secured 2nd prize across the department for designing and coding an automated Student Management System with full database persistence.",
+        "user": "CMR Institute of Technology, Bengaluru"
+      },
+      {
+        "title": "Production Code Shipped",
+        "text": "Shipped and deployed production FastAPI services, database optimizations, and LangChain LLM pipelines currently serving live workflows.",
+        "user": "Teclusion AI"
+      },
+      {
+        "title": "AWS Cloud Foundations",
+        "text": "Completed AWS Cloud certification, mastering cloud computing architectures, VPCs, IAM policies, and cloud-native workflows.",
+        "user": "Amazon Web Services (AWS)"
       }
     ]
   }

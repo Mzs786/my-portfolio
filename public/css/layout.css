@@ -33,7 +33,7 @@ header {
    height: 800px;
    min-height: 500px;
    width: 100%;
-   background: #161415 url(/images/header-background.jpg) no-repeat top center;
+   background: #161415 url(/images/header-background.jpg) no-repeat center center;
    background-size: cover !important;
 	-webkit-background-size: cover !important;
    text-align: center;
@@ -54,6 +54,7 @@ header .banner {
    width: 85%;
    padding-bottom: 30px;
    text-align: center;
+   will-change: transform;
 }
 
 header .banner-text { width: 100%; }
@@ -64,22 +65,31 @@ header .banner-text h1 {
    margin: 0 auto 18px auto;
    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
 }
-header .banner-text h3 {
-   font: 18px/1.9em 'librebaskerville-regular', serif;
-   color: #A8A8A8;
+
+/* ── Orchestrated Staggered Entrance ── */
+.stagger-subtitle {
+   font: 500 18px/1.85em 'Inter', 'opensans-regular', system-ui, -apple-system, sans-serif;
+   color: #e2e8f0;
    margin: 0 auto;
-   width: 70%;
-   text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+   width: 75%;
+   letter-spacing: 0.2px;
+   text-shadow: 0px 2px 8px rgba(0, 0, 0, .85);
+   opacity: 0;
+   transform: translateY(14px);
+   animation: heroFadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
-header .banner-text h3 span,
-header .banner-text h3 a {
-   color: #fff;
+.stagger-subtitle span,
+.stagger-subtitle a {
+   color: #ffffff;
+   font-weight: 600;
 }
-header .banner-text hr {
-   width: 60%;
+
+.stagger-hr {
+   width: 0% !important;
+   opacity: 0;
    margin: 18px auto 24px auto;
-   border-color: #2F2D2E;
-   border-color: rgba(150, 150, 150, .1);
+   border-color: rgba(150, 150, 150, .15);
+   animation: heroHrExpand 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
 }
 
 /* header social links */
@@ -89,15 +99,60 @@ header .social {
    font-size: 30px;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
 }
-header .social li {
+.stagger-social li {
    display: inline-block;
    margin: 0 15px;
    padding: 0;
+   opacity: 0;
+   transform: translateY(12px) scale(0.9);
+   animation: heroSocialPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
-header .social li a { color: #fff; }
-header .social li a:hover { color: #11ABB0; }
+.stagger-social li:nth-child(1) { animation-delay: 1.05s; }
+.stagger-social li:nth-child(2) { animation-delay: 1.15s; }
+.stagger-social li:nth-child(3) { animation-delay: 1.25s; }
+.stagger-social li:nth-child(4) { animation-delay: 1.35s; }
+.stagger-social li:nth-child(5) { animation-delay: 1.45s; }
+.stagger-social li:nth-child(6) { animation-delay: 1.55s; }
 
-/* scrolldown link */
+.stagger-social li:hover {
+   transform: translateY(-4px) scale(1.1);
+}
+.stagger-social li a { color: #fff; transition: color 0.2s ease, transform 0.2s ease; display: inline-block; }
+.stagger-social li a:hover { color: #818cf8; }
+
+@keyframes heroFadeInUp {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+@keyframes heroHrExpand {
+   to {
+      width: 60%;
+      opacity: 1;
+   }
+}
+
+@keyframes heroSocialPop {
+   to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .stagger-subtitle,
+   .stagger-hr,
+   .stagger-social li {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      width: 60% !important;
+   }
+}
+
+/* scrolldown link with gentle bounce animation */
 header .scrolldown a {
    position: absolute;
    bottom: 30px;
@@ -109,15 +164,19 @@ header .scrolldown a {
    width: 42px;
    font-size: 42px;
    line-height: 42px;
-   color: #fff;
    border-radius: 100%;
-
-   -webkit-transition: all .3s ease-in-out;
-   -moz-transition: all .3s ease-in-out;
-   -o-transition: all .3s ease-in-out;
    transition: all .3s ease-in-out;
+   animation: bounceDown 2.2s infinite ease-in-out;
 }
-header .scrolldown a:hover { color: #11ABB0; }
+header .scrolldown a:hover {
+   color: #818cf8;
+   transform: scale(1.15);
+}
+@keyframes bounceDown {
+   0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+   40% { transform: translateY(-12px); }
+   60% { transform: translateY(-6px); }
+}
 
 /* primary navigation
 --------------------------------------------------------------------- */
@@ -139,8 +198,13 @@ header .scrolldown a:hover { color: #11ABB0; }
    position: fixed;
    left: 0;
    top: 0;
+   background: rgba(15, 23, 42, 0.94);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
-.opaque { background-color: #333; }
+.opaque { background-color: rgba(15, 23, 42, 0.96); }
 
 /* hide toggle button */
 #nav-wrap > a.mobile-btn { display: none; }
@@ -179,7 +243,7 @@ ul#nav li a {
 }
 
 ul#nav li a:active { background-color: transparent !important; }
-ul#nav li.current a { color: #F06000; }
+ul#nav li.current a { color: #818cf8; }
 
 
 /* ------------------------------------------------------------------ */
@@ -187,14 +251,16 @@ ul#nav li.current a { color: #F06000; }
 /* ------------------------------------------------------------------ */
 
 #about {
-   background: #2B2B2B;
+   background: #0f172a;
+   border-top: 1px solid rgba(255, 255, 255, 0.08);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
    padding-top: 96px;
-   padding-bottom: 66px;
+   padding-bottom: 72px;
    overflow: hidden;
 }
 
 #about a, #about a:visited  { color: #fff; }
-#about a:hover, #about a:focus { color: #11ABB0; }
+#about a:hover, #about a:focus { color: #818cf8; }
 
 #about h2 {
    font: 22px/30px 'opensans-bold', sans-serif;
@@ -203,13 +269,15 @@ ul#nav li.current a { color: #F06000; }
 }
 #about p {
    line-height: 30px;
-   color: #7A7A7A;
+   color: #cbd5e1;
 }
 #about .profile-pic {
    position: relative;
-   width: 120px;
-   height: 120px;
+   width: 130px;
+   height: 130px;
    border-radius: 100%;
+   border: 3px solid rgba(99, 102, 241, 0.4);
+   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 #about .contact-details { width: 41.66667%; }
 #about .download {
@@ -219,11 +287,18 @@ ul#nav li.current a { color: #F06000; }
 #about .main-col { padding-right: 5%; }
 #about .download .button {
    margin-top: 6px;
-   background: #444;
+   background: #6366f1;
+   color: #ffffff;
+   border-radius: 8px;
+   font-weight: 600;
+   box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+   transition: all 0.25s ease;
 }
 #about .download .button:hover {
-   background: #fff;
-   color: #2B2B2B;
+   background: #4f46e5;
+   color: #ffffff;
+   transform: translateY(-2px);
+   box-shadow: 0 6px 18px rgba(99, 102, 241, 0.55);
 }
 #about .download .button i {
    margin-right: 15px;
